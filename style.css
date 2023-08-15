@@ -1,0 +1,284 @@
+:root {
+  --primaryUser: hsl(246, 80%, 60%);
+  --primaryPlay: hsl(195, 74%, 62%);
+  --primaryWork: hsl(15, 100%, 70%);
+  --primaryStudy: hsl(348, 100%, 68%);
+  --primaryExercise: hsl(145, 58%, 55%);
+  --primarySocial: hsl(264, 64%, 52%);
+  --primarySelfCare: hsl(43, 84%, 65%);
+  --neutralVeryDarkBlue: hsl(226, 43%, 10%);
+  --neutralDarkBlue: hsl(235, 46%, 20%);
+  --neutralDesaturatedBlue: hsl(235, 45%, 61%);
+  --neutralPaleBlue: hsl(236, 100%, 87%);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+}
+
+head {
+  font-size: 18px;
+}
+
+body {
+  background: var(--neutralVeryDarkBlue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+div {
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+
+.contuner {
+  display: grid;
+  height: 50%;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: repeat(2, 50%);
+  gap: 30px;
+  margin: 50px;
+}
+
+.user,
+.category {
+  width: 250px;
+  position: relative;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  grid-row: 1 / span 2;
+}
+
+.user img {
+  background-color: var(--primaryUser);
+  border: 2px solid white;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.user .info {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background-color: var(--primaryUser);
+  height: 368px;
+  z-index: 2;
+}
+
+.user .info h3 {
+  color: var(--neutralPaleBlue);
+  font-size: 1rem;
+  line-height: 30px;
+}
+
+.user .info p {
+  color: white;
+  font-size: 2.5rem;
+}
+
+.category__text,
+.chose {
+  background-color: var(--neutralDarkBlue);
+  padding: 30px;
+}
+
+.chose {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+  padding-bottom: 20px;
+}
+
+.chose ul {
+  list-style: none;
+  color: var(--neutralPaleBlue);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+ul li,
+.category {
+  cursor: pointer;
+}
+
+.category:hover > .category__text {
+  background-color: var(--primaryUser);
+}
+
+.category__text {
+  color: rgb(220, 219, 219);
+  position: relative;
+  z-index: 1;
+  bottom: -50px;
+}
+.category__text .header {
+  display: flex;
+  justify-content: space-between;
+  color: rgb(220, 219, 219);
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.header img {
+  height: 6px;
+}
+
+.current {
+  font-size: 3rem;
+}
+
+.previous {
+  font-size: 0.8rem;
+  color: var(--neutralPaleBlue);
+}
+
+.work .image {
+  background-color: var(--primaryWork);
+}
+
+.play .image {
+  background-color: var(--primaryPlay);
+}
+
+.study .image {
+  background-color: var(--primaryStudy);
+}
+
+.exercise .image {
+  background-color: var(--primaryExercise);
+}
+
+.social .image {
+  background-color: var(--primarySocial);
+}
+
+.self-care .image {
+  background-color: var(--primarySelfCare);
+}
+
+.social .image img {
+  width: 65px;
+}
+
+.exercise .image img {
+  width: 100px;
+}
+
+.image {
+  /* height: 50px; */
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  padding: 0 15px;
+}
+
+.image img {
+  float: right;
+}
+
+@media (width < 1050px) {
+  html {
+    font-size: 12px;
+  }
+
+  .user,
+  .category {
+    width: 200px;
+  }
+}
+
+@media (width < 876px) {
+  body {
+    align-items: start;
+  }
+  .contuner {
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: none;
+  }
+  .user {
+    flex-direction: row;
+    grid-column: span 2;
+  }
+  .user .info {
+    height: 150px;
+    flex-direction: row;
+    gap: 50px;
+  }
+  .chose {
+    position: initial;
+  }
+  .category {
+    margin-bottom: 50px;
+  }
+}
+
+@media (width < 450px) {
+  .contuner {
+    grid-template-columns: repeat(1, auto);
+    height: 100%;
+  }
+
+  .user {
+    grid-column: 1;
+    flex-direction: column;
+  }
+
+  .user img {
+    width: 50px;
+    height: 50px;
+  }
+  .user .info {
+    height: 80px;
+    padding: 14px;
+    gap: 15px;
+  }
+
+  .user .info p,
+  .current {
+    font-size: 1.2rem;
+  }
+
+  .chose {
+    position: absolute;
+    bottom: -32px;
+    padding-bottom: 10px;
+  }
+
+  .chose ul {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .category__text:not(:first-child) {
+    padding: 15px;
+    bottom: -49px;
+  }
+  .category__text .header {
+    margin-bottom: 5px;
+  }
+  .time {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .image img {
+    width: 50px;
+  }
+}
